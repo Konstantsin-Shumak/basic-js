@@ -31,26 +31,6 @@ describe('Vigenere cipher', () => {
   //Specific requirements
   describe('base requirements', () => {
     const directMachine = new VigenereCipheringMachine();
-    const reverseMachine = new VigenereCipheringMachine(false);
-
-    it.optional('must throw an Error if no args', function () {
-      const res = checkForThrowingErrors.call(this, [
-        () => directMachine.encrypt('lala'),
-        () => directMachine.encrypt(undefined, 'key'),
-        () => directMachine.encrypt(),
-        () => reverseMachine.encrypt('lala'),
-        () => reverseMachine.encrypt(undefined, 'key'),
-        () => reverseMachine.encrypt(),
-        () => directMachine.decrypt('lala'),
-        () => directMachine.decrypt(undefined, 'key'),
-        () => directMachine.decrypt(),
-        () => reverseMachine.decrypt('lala'),
-        () => reverseMachine.decrypt(undefined, 'key'),
-        () => reverseMachine.decrypt()
-      ], 'Incorrect arguments!');
-
-      assert.strictEqual(res.every($ => $ === CORRECT_RESULT_MSG), true);
-    });
 
     it.optional('base encryption', () => {
       assert.equal(directMachine.encrypt('attack at dawn!', 'alphonse'), 'AEIHQX SX DLLU!');
